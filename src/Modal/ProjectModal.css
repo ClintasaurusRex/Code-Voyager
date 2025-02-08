@@ -1,0 +1,43 @@
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #000000;
+  padding: 20px;
+  border-radius: 8px;
+  color: white;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  position: relative;
+  text-shadow: 0 0 5px #0f0, 0 0 10px #0f0;
+}
+
+.close-button {
+  text-shadow: 0 0 5px #0f0, 0 0 10px #0f0;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+.btn btn-outline-success btn-lg mt-3 {
+  background-color: #000;
+  color: #0f0;
+  border: 1px solid #0f0;
+  font-size: 1.5rem;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
