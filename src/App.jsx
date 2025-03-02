@@ -86,7 +86,7 @@ function Scene() {
       <ambientLight intensity={0.2} />
 
       {/* Main light source (sun) */}
-      <pointLight position={[0, 0, 0]} intensity={1.5} color="#f8e3c9" />
+      <pointLight position={[0, 0, 0]} intensity={100.5} color="#f8e3c9" />
 
       {/* Dynamic star background */}
       <StarField />
@@ -227,8 +227,17 @@ function SimplePlanet({ position, size, name }) {
 
 function App() {
   return (
-    <div style={{ width: "100vw", height: "100vh", background: "#000814" }}>
-      <Canvas>
+    <div
+      style={{
+        width: "100%",
+        height: "100vh",
+        background: "#000814",
+        position: "absolute",
+        top: 0,
+        left: 0,
+      }}
+    >
+      <Canvas style={{ position: "absolute" }}>
         <Suspense fallback={<Loader />}>
           <ErrorBoundary fallback={<ErrorFallback />}>
             <Scene />
@@ -238,5 +247,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

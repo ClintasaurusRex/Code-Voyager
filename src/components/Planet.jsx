@@ -1,11 +1,13 @@
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useTexture, Html } from "@react-three/drei";
 import * as THREE from "three";
 
 function Planet({ position, size = 1, texturePath, rotationSpeed = 0.01, onClick, name }) {
   const meshRef = useRef();
-  // Use useTexture hook to load the texture
+
+  // Load the texture with useTexture
+  // The key is to use it directly without conditional logic during render
   const texture = useTexture(texturePath);
 
   useFrame(() => {
