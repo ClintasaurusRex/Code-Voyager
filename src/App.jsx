@@ -4,6 +4,9 @@ import { Text3D, OrbitControls, PerspectiveCamera, Html, useProgress } from "@re
 import * as THREE from "three";
 import "./App.css";
 
+// Import data
+import paragraphs from "../data/about";
+
 // Import components
 import StarField from "./components/StarField";
 import Planet from "./components/Planet";
@@ -127,7 +130,7 @@ function Scene() {
           texturePath="/textures/earth_atmos_2048.jpg"
           rotationSpeed={0.005}
           // onClick={() => handlePlanetClick("about", [-16, 1, 5])}
-          onClick={() => handlePlanetClick("about", [0, 0, 50])}
+          onClick={() => handlePlanetClick("About", [0, 0, 50])}
           name="About Me"
         />
       </ErrorBoundary>
@@ -169,9 +172,9 @@ function Scene() {
         >
           <div className="content-panel">
             <h2>{activePlanet}</h2>
-            {activePlanet === "about" && (
-              <div>
-                <p>Software developer with a passion for 3D web experiences...</p>
+            {activePlanet === "About" && (
+              <div className="content-panel-body">
+                <p>{paragraphs}</p>
                 <button onClick={() => setActivePlanet(null)}>Back to Space</button>
               </div>
             )}
