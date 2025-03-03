@@ -71,7 +71,7 @@ class ErrorBoundary extends React.Component {
 
 function Scene() {
   const [activePlanet, setActivePlanet] = useState(null);
-  const [cameraPosition, setCameraPosition] = useState([0, 0, 20]);
+  const [cameraPosition, setCameraPosition] = useState([0, 0, 40]);
 
   const handlePlanetClick = (planetName, viewPosition) => {
     setActivePlanet(planetName);
