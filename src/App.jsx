@@ -101,11 +101,11 @@ function Scene() {
         <Text3D
           position={[0, 10, 0]}
           font={"/fonts/helvetiker_regular.typeface.json"}
-          size={0.75}
+          size={1.95}
           height={0.2}
           curveSegments={12}
           bevelEnabled
-          bevelThickness={0.02}
+          bevelThickness={0.2}
           bevelSize={0.02}
         >
           Clint Arneson-Hiles
@@ -122,8 +122,8 @@ function Scene() {
       {/* Planets for different sections */}
       <ErrorBoundary fallback={<SimplePlanet position={[8, 0, 0]} size={1.2} name="About Me" />}>
         <Planet
-          position={[8, 0, 0]}
-          size={1.2}
+          position={[18, 5, 0]}
+          size={2.2}
           texturePath="/textures/earth_atmos_2048.jpg"
           rotationSpeed={0.005}
           onClick={() => handlePlanetClick("about", [6, 1, 5])}
@@ -133,8 +133,8 @@ function Scene() {
 
       <ErrorBoundary fallback={<SimplePlanet position={[-10, 2, 5]} size={1.8} name="Projects" />}>
         <Planet
-          position={[-10, 2, 5]}
-          size={1.8}
+          position={[-23, 2, 5]}
+          size={3.8}
           texturePath="/textures/2k_jupiter.jpg"
           rotationSpeed={0.008}
           onClick={() => handlePlanetClick("projects", [-7, 2, 5])}
@@ -144,8 +144,8 @@ function Scene() {
 
       <ErrorBoundary fallback={<SimplePlanet position={[5, -8, -4]} size={1.0} name="Contact" />}>
         <Planet
-          position={[5, -8, -4]}
-          size={1.0}
+          position={[15, -13, -4]}
+          size={2.0}
           texturePath="/textures/2k_mars.jpg"
           rotationSpeed={0.01}
           onClick={() => handlePlanetClick("contact", [3, -5, 3])}
