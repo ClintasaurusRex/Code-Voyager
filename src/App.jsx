@@ -138,7 +138,8 @@ function Scene() {
           size={3.8}
           texturePath="/textures/2k_jupiter.jpg"
           rotationSpeed={0.008}
-          onClick={() => handlePlanetClick("projects", [-17, 25, 15])}
+          // onClick={() => handlePlanetClick("projects", [-17, 25, 15])}
+          onClick={() => handlePlanetClick("projects", [0, 0, 50])}
           name="Projects"
         />
       </ErrorBoundary>
@@ -149,7 +150,8 @@ function Scene() {
           size={2.0}
           texturePath="/textures/2k_mars.jpg"
           rotationSpeed={0.01}
-          onClick={() => handlePlanetClick("contact", [-15, -5, 3])}
+          // onClick={() => handlePlanetClick("contact", [-15, -5, 3])}
+          onClick={() => handlePlanetClick("contact", [0, 0, 50])}
           name="Contact"
         />
       </ErrorBoundary>
@@ -157,9 +159,13 @@ function Scene() {
       {/* Content sections - shown when planet is selected */}
       {activePlanet && (
         <Html
-          position={[cameraPosition[0] * 0.5, cameraPosition[1] * 0.5, cameraPosition[2] * 0.5]}
+          position={[
+            cameraPosition[0] * 0.01 - 1,
+            cameraPosition[1] * 0.01 + 1,
+            cameraPosition[2] * 0.01,
+          ]}
           transform
-          distanceFactor={5}
+          distanceFactor={25}
         >
           <div className="content-panel">
             <h2>{activePlanet}</h2>
