@@ -134,9 +134,12 @@ body {
   color: white;
   padding: 20px;
   border-radius: 10px;
-  width: 300px;
+  width: 60em;
   max-height: 400px;
   display: flex;
+  font-size: 20px;
+  line-height: 2;
+
   flex-direction: column;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -174,6 +177,7 @@ body {
   flex-grow: 1;
   padding-right: 10px;
   max-height: 300px;
+  scroll-behavior: smooth;
 }
 
 /* Style the scrollbar */
