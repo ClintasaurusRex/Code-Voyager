@@ -126,7 +126,8 @@ function Scene() {
           size={2.2}
           texturePath="/textures/earth_atmos_2048.jpg"
           rotationSpeed={0.005}
-          onClick={() => handlePlanetClick("about", [6, 1, 5])}
+          // onClick={() => handlePlanetClick("about", [-16, 1, 5])}
+          onClick={() => handlePlanetClick("about", [0, 0, 50])}
           name="About Me"
         />
       </ErrorBoundary>
@@ -137,18 +138,18 @@ function Scene() {
           size={3.8}
           texturePath="/textures/2k_jupiter.jpg"
           rotationSpeed={0.008}
-          onClick={() => handlePlanetClick("projects", [-7, 2, 5])}
+          onClick={() => handlePlanetClick("projects", [-17, 25, 15])}
           name="Projects"
         />
       </ErrorBoundary>
 
       <ErrorBoundary fallback={<SimplePlanet position={[5, -8, -4]} size={1.0} name="Contact" />}>
         <Planet
-          position={[15, -13, -4]}
+          position={[-15, -13, -4]}
           size={2.0}
           texturePath="/textures/2k_mars.jpg"
           rotationSpeed={0.01}
-          onClick={() => handlePlanetClick("contact", [3, -5, 3])}
+          onClick={() => handlePlanetClick("contact", [-15, -5, 3])}
           name="Contact"
         />
       </ErrorBoundary>
