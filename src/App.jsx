@@ -83,7 +83,7 @@ function Scene() {
       <CameraControl makeDefault position={cameraPosition} fov={75} near={0.1} far={1000} />
 
       {/* Ambient lighting */}
-      <ambientLight intensity={0.2} />
+      <ambientLight intensity={0.3} />
 
       {/* Main light source (sun) */}
       <pointLight position={[0, 0, 0]} intensity={100.5} color="#f8e3c9" />
@@ -94,12 +94,12 @@ function Scene() {
       {/* Central name/logo */}
       <group position={[0, 0, 0]}>
         <mesh>
-          <sphereGeometry args={[2, 32, 32]} />
+          <sphereGeometry args={[5, 32, 32]} />
           <meshStandardMaterial emissive="#f5c542" emissiveIntensity={1} color="#f8e3c9" />
         </mesh>
 
         <Text3D
-          position={[0, 3, 0]}
+          position={[0, 10, 0]}
           font={"/fonts/helvetiker_regular.typeface.json"}
           size={0.75}
           height={0.2}
