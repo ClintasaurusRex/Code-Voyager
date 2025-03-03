@@ -170,26 +170,30 @@ function Scene() {
           transform
           distanceFactor={25}
         >
-          <div className="content-panel">
-            <h2>{activePlanet}</h2>
-            {activePlanet === "About" && (
-              <div className="content-panel-body">
-                <p>{paragraphs}</p>
-                <button onClick={() => setActivePlanet(null)}>Back to Space</button>
-              </div>
-            )}
-            {activePlanet === "projects" && (
-              <div>
-                <p>Check out my portfolio of web development projects...</p>
-                <button onClick={() => setActivePlanet(null)}>Back to Space</button>
-              </div>
-            )}
-            {activePlanet === "contact" && (
-              <div>
-                <p>Get in touch via email or social media...</p>
-                <button onClick={() => setActivePlanet(null)}>Back to Space</button>
-              </div>
-            )}
+          <div className="content-container">
+            <div className="content-panel">
+              <h2>{activePlanet}</h2>
+              {activePlanet === "About" && (
+                <div className="content-panel-body">
+                  <p>{paragraphs}</p>
+                </div>
+              )}
+              {activePlanet === "projects" && (
+                <div className="content-panel-body">
+                  <p>Check out my portfolio of web development projects...</p>
+                </div>
+              )}
+              {activePlanet === "contact" && (
+                <div className="content-panel-body">
+                  <p>Get in touch via email or social media...</p>
+                </div>
+              )}
+            </div>
+
+            {/* Button outside the card but inside the container */}
+            <button className="floating-button" onClick={() => setActivePlanet(null)}>
+              Back to Space
+            </button>
           </div>
         </Html>
       )}

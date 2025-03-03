@@ -122,18 +122,45 @@ body {
   color: #aa0000;
 }
 /* CARDS   */
+.content-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .content-panel {
   background: rgba(0, 8, 20, 0.8);
   color: white;
   padding: 20px;
   border-radius: 10px;
-  width: 50em;
-  max-height: 500px; /* Fixed height for the panel */
+  width: 300px;
+  max-height: 400px;
   display: flex;
-  line-height: 2;
   flex-direction: column;
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 50px; /* Space for the button below */
+}
+
+.floating-button {
+  position: absolute;
+  bottom: 10px;
+  background: #f5c542;
+  color: #000814;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s, box-shadow 0.2s;
+  z-index: 100; /* Ensure it's above other elements */
+}
+
+.floating-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
 }
 
 .content-panel h2 {
@@ -143,23 +170,10 @@ body {
 }
 
 .content-panel-body {
-  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-y: auto;
   flex-grow: 1;
-  margin-bottom: 15px;
-  padding-right: 10px; /* Space for scrollbar */
-  max-height: 300px; /* Control the scrollable area height */
-}
-
-.content-panel button {
-  align-self: center;
-  background: #f5c542;
-  color: #000814;
-  border: none;
-  padding: 8px 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-  margin-top: 10px;
+  padding-right: 10px;
+  max-height: 300px;
 }
 
 /* Style the scrollbar */
