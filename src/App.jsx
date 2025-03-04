@@ -1,4 +1,4 @@
-import React, { useState, useRef, Suspense, useEffect } from "react";
+import React, { useState, useRef, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Text3D, OrbitControls, PerspectiveCamera, Html, useProgress } from "@react-three/drei";
 import Contact from "./components/Contact";
@@ -141,9 +141,9 @@ function Scene() {
       </group>
       {/* Planets for different sections - with non-intersecting orbits */}
       <ErrorBoundary fallback={<SimplePlanet position={[8, 0, 0]} size={1.2} name="About Me" />}>
-        <OrbitingPlanet orbitRadius={20} orbitSpeed={0.05} orbitOffset={0} yOffset={5}>
+        <OrbitingPlanet orbitRadius={15} orbitSpeed={0.05} orbitOffset={0} yOffset={5}>
           <Planet
-            position={[0, 0, 0]}
+            position={[0, -5, 0]}
             size={2.2}
             texturePath="/textures/earth_atmos_2048.jpg"
             rotationSpeed={0.005}
@@ -156,7 +156,7 @@ function Scene() {
       <ErrorBoundary fallback={<SimplePlanet position={[-10, 2, 5]} size={1.8} name="Projects" />}>
         <OrbitingPlanet orbitRadius={30} orbitSpeed={0.03} orbitOffset={2} yOffset={0}>
           <Planet
-            position={[20, 0, 0]}
+            position={[0, 10, 0]}
             size={3.8}
             texturePath="/textures/2k_jupiter.jpg"
             rotationSpeed={0.019}
@@ -168,9 +168,9 @@ function Scene() {
       </ErrorBoundary>
 
       <ErrorBoundary fallback={<SimplePlanet position={[5, -8, -4]} size={1.0} name="Contact" />}>
-        <OrbitingPlanet orbitRadius={15} orbitSpeed={0.07} orbitOffset={4} yOffset={-10}>
+        <OrbitingPlanet orbitRadius={20} orbitSpeed={0.07} orbitOffset={4} yOffset={-10}>
           <Planet
-            position={[-20, 0, 0]}
+            position={[0, 0, 0]}
             size={2.0}
             texturePath="/textures/2k_mars.jpg"
             rotationSpeed={0.01}
