@@ -144,7 +144,7 @@ function Scene() {
           texturePath="/textures/2k_jupiter.jpg"
           rotationSpeed={0.008}
           // onClick={() => handlePlanetClick("projects", [-17, 25, 15])}
-          onClick={() => handlePlanetClick("projects", [0, 0, 50])}
+          onClick={() => handlePlanetClick("Projects", [0, 0, 50])}
           name="Projects"
         />
       </ErrorBoundary>
@@ -156,7 +156,7 @@ function Scene() {
           texturePath="/textures/2k_mars.jpg"
           rotationSpeed={0.01}
           // onClick={() => handlePlanetClick("contact", [-15, -5, 3])}
-          onClick={() => handlePlanetClick("contact", [0, 0, 50])}
+          onClick={() => handlePlanetClick("Contact", [0, 0, 50])}
           name="Contact"
         />
       </ErrorBoundary>
@@ -180,12 +180,12 @@ function Scene() {
                   <p>{paragraphs}</p>
                 </div>
               )}
-              {activePlanet === "projects" && (
+              {activePlanet === "Projects" && (
                 <div className="content-panel-body">
                   <p>Check out my portfolio of web development projects...</p>
                 </div>
               )}
-              {activePlanet === "contact" && (
+              {activePlanet === "Contact" && (
                 <div className="content-panel-body">
                   <Contact />
                   <p>Get in touch via email or social media...</p>
