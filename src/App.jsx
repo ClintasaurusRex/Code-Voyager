@@ -1,6 +1,8 @@
 import React, { useState, useRef, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Text3D, OrbitControls, PerspectiveCamera, Html, useProgress } from "@react-three/drei";
+import Contact from "./components/Contact";
+
 import * as THREE from "three";
 import "./App.css";
 
@@ -185,6 +187,7 @@ function Scene() {
               )}
               {activePlanet === "contact" && (
                 <div className="content-panel-body">
+                  <Contact />
                   <p>Get in touch via email or social media...</p>
                 </div>
               )}

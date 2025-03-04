@@ -1,0 +1,55 @@
+.contact-container {
+  color: white;
+  max-width: 500px;
+  padding: 20px;
+  margin: 0 auto;
+}
+.contact-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #f5c542;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 0.5rem;
+}
+
+.contact-links {
+  display: flex;
+  flex-direction: row;
+  gap: 10rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.contact-link {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  gap: 10px;
+  color: white;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  font-size: 34px;
+  box-shadow: 0 0 10px 2px rgba(0, 255, 0, 0.3); /* Green glow effect */
+}
+
+.contact-link:hover {
+  background: rgba(245, 197, 66, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px 5px rgba(0, 255, 0, 0.5); /* Enhanced green glow on hover */
+}
+
+.contact-link i {
+  font-size: 1.5rem;
+}
+
+.contact-link span {
+  font-weight: 500;
+}
+.emblem::before {
+  font-size: 50px;
+}
