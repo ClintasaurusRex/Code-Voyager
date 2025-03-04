@@ -75,16 +75,16 @@ class ErrorBoundary extends React.Component {
 }
 
 // New component for orbital movement
-function OrbitingPlanet({ orbitRadius, orbitSpeed, orbitOffset = 0, children }) {
+function OrbitingPlanet({ orbitRadius, orbitSpeed, orbitOffset = 0, yOffset = 0, children }) {
   const groupRef = useRef();
   const [angle, setAngle] = useState(orbitOffset);
-
   useFrame((state, delta) => {
     setAngle((prev) => prev + orbitSpeed * delta);
     if (groupRef.current) {
       const x = Math.sin(angle) * orbitRadius;
       const z = Math.cos(angle) * orbitRadius;
       groupRef.current.position.x = x;
+      groupRef.current.position.y = yOffset;
       groupRef.current.position.z = z;
     }
   });
@@ -139,12 +139,11 @@ function Scene() {
           />
         </Text3D>
       </group>
-
-      {/* Planets for different sections - now with orbital motion */}
+      {/* Planets for different sections - with non-intersecting orbits */}
       <ErrorBoundary fallback={<SimplePlanet position={[8, 0, 0]} size={1.2} name="About Me" />}>
-        <OrbitingPlanet orbitRadius={20} orbitSpeed={0.1} orbitOffset={0}>
+        <OrbitingPlanet orbitRadius={20} orbitSpeed={0.05} orbitOffset={0} yOffset={5}>
           <Planet
-            position={[0, 5, -10]}
+            position={[0, 0, 0]}
             size={2.2}
             texturePath="/textures/earth_atmos_2048.jpg"
             rotationSpeed={0.005}
@@ -155,10 +154,10 @@ function Scene() {
       </ErrorBoundary>
 
       <ErrorBoundary fallback={<SimplePlanet position={[-10, 2, 5]} size={1.8} name="Projects" />}>
-        <OrbitingPlanet orbitRadius={25} orbitSpeed={0.07} orbitOffset={2}>
+        <OrbitingPlanet orbitRadius={30} orbitSpeed={0.03} orbitOffset={2} yOffset={0}>
           <Planet
-            position={[30, 12, 0]}
-            size={6.8}
+            position={[0, 0, 0]}
+            size={3.8}
             texturePath="/textures/2k_jupiter.jpg"
             rotationSpeed={0.008}
             onClick={() => handlePlanetClick("Projects", [0, 0, 50])}
@@ -168,9 +167,9 @@ function Scene() {
       </ErrorBoundary>
 
       <ErrorBoundary fallback={<SimplePlanet position={[5, -8, -4]} size={1.0} name="Contact" />}>
-        <OrbitingPlanet orbitRadius={15} orbitSpeed={0.15} orbitOffset={4}>
+        <OrbitingPlanet orbitRadius={15} orbitSpeed={0.07} orbitOffset={4} yOffset={-10}>
           <Planet
-            position={[0, -1, 10]}
+            position={[0, 0, 0]}
             size={2.0}
             texturePath="/textures/2k_mars.jpg"
             rotationSpeed={0.01}
