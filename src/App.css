@@ -59,11 +59,12 @@ body {
 .planet-label {
   color: white;
   font-family: "Arial", sans-serif;
-  font-size: 0.8rem;
+  font-size: 1.8rem;
   white-space: nowrap;
   opacity: 0.8;
   text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
   pointer-events: none;
+  transition: all 0.3s ease;
 }
 
 .content-panel {

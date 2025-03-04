@@ -156,12 +156,13 @@ function Scene() {
       <ErrorBoundary fallback={<SimplePlanet position={[-10, 2, 5]} size={1.8} name="Projects" />}>
         <OrbitingPlanet orbitRadius={30} orbitSpeed={0.03} orbitOffset={2} yOffset={0}>
           <Planet
-            position={[0, 0, 0]}
+            position={[20, 0, 0]}
             size={3.8}
             texturePath="/textures/2k_jupiter.jpg"
-            rotationSpeed={0.008}
+            rotationSpeed={0.019}
+            nameOffset={2.5}
             onClick={() => handlePlanetClick("Projects", [0, 0, 50])}
-            name="Projects"
+            name="Project"
           />
         </OrbitingPlanet>
       </ErrorBoundary>
@@ -169,7 +170,7 @@ function Scene() {
       <ErrorBoundary fallback={<SimplePlanet position={[5, -8, -4]} size={1.0} name="Contact" />}>
         <OrbitingPlanet orbitRadius={15} orbitSpeed={0.07} orbitOffset={4} yOffset={-10}>
           <Planet
-            position={[0, 0, 0]}
+            position={[-20, 0, 0]}
             size={2.0}
             texturePath="/textures/2k_mars.jpg"
             rotationSpeed={0.01}
@@ -220,7 +221,7 @@ function Scene() {
       {/* Allow limited orbit controls */}
       <OrbitControls
         enableZoom={true}
-        enablePan={false}
+        enablePan={true}
         maxDistance={30}
         minDistance={5}
         enableDamping
