@@ -1,4 +1,4 @@
-import React, { useState, useRef, Suspense } from "react";
+import React, { useState, useRef, Suspense, useEffect } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Text3D, OrbitControls, PerspectiveCamera, Html, useProgress } from "@react-three/drei";
 import Contact from "./components/Contact";
@@ -74,6 +74,24 @@ class ErrorBoundary extends React.Component {
   }
 }
 
+// New component for orbital movement
+function OrbitingPlanet({ orbitRadius, orbitSpeed, orbitOffset = 0, children }) {
+  const groupRef = useRef();
+  const [angle, setAngle] = useState(orbitOffset);
+
+  useFrame((state, delta) => {
+    setAngle((prev) => prev + orbitSpeed * delta);
+    if (groupRef.current) {
+      const x = Math.sin(angle) * orbitRadius;
+      const z = Math.cos(angle) * orbitRadius;
+      groupRef.current.position.x = x;
+      groupRef.current.position.z = z;
+    }
+  });
+
+  return <group ref={groupRef}>{children}</group>;
+}
+
 function Scene() {
   const [activePlanet, setActivePlanet] = useState(null);
   const [cameraPosition, setCameraPosition] = useState([20, 0, 50]);
@@ -122,39 +140,44 @@ function Scene() {
         </Text3D>
       </group>
 
-      {/* Planets for different sections */}
+      {/* Planets for different sections - now with orbital motion */}
       <ErrorBoundary fallback={<SimplePlanet position={[8, 0, 0]} size={1.2} name="About Me" />}>
-        <Planet
-          position={[18, 5, 0]}
-          size={2.2}
-          texturePath="/textures/earth_atmos_2048.jpg"
-          rotationSpeed={0.005}
-          // onClick={() => handlePlanetClick("about", [-16, 1, 5])}
-          onClick={() => handlePlanetClick("About", [0, 0, 50])}
-          name="About Me"
-        />
+        <OrbitingPlanet orbitRadius={20} orbitSpeed={0.1} orbitOffset={0}>
+          <Planet
+            position={[0, 5, -10]}
+            size={2.2}
+            texturePath="/textures/earth_atmos_2048.jpg"
+            rotationSpeed={0.005}
+            onClick={() => handlePlanetClick("About", [0, 0, 50])}
+            name="About Me"
+          />
+        </OrbitingPlanet>
       </ErrorBoundary>
+
       <ErrorBoundary fallback={<SimplePlanet position={[-10, 2, 5]} size={1.8} name="Projects" />}>
-        <Planet
-          position={[-23, 2, 5]}
-          size={3.8}
-          texturePath="/textures/2k_jupiter.jpg"
-          rotationSpeed={0.008}
-          // onClick={() => handlePlanetClick("projects", [-17, 25, 15])}
-          onClick={() => handlePlanetClick("Projects", [0, 0, 50])}
-          name="Projects"
-        />
+        <OrbitingPlanet orbitRadius={25} orbitSpeed={0.07} orbitOffset={2}>
+          <Planet
+            position={[30, 12, 0]}
+            size={6.8}
+            texturePath="/textures/2k_jupiter.jpg"
+            rotationSpeed={0.008}
+            onClick={() => handlePlanetClick("Projects", [0, 0, 50])}
+            name="Projects"
+          />
+        </OrbitingPlanet>
       </ErrorBoundary>
+
       <ErrorBoundary fallback={<SimplePlanet position={[5, -8, -4]} size={1.0} name="Contact" />}>
-        <Planet
-          position={[-15, -13, -4]}
-          size={2.0}
-          texturePath="/textures/2k_mars.jpg"
-          rotationSpeed={0.01}
-          // onClick={() => handlePlanetClick("contact", [-15, -5, 3])}
-          onClick={() => handlePlanetClick("Contact", [0, 0, 50])}
-          name="Contact"
-        />
+        <OrbitingPlanet orbitRadius={15} orbitSpeed={0.15} orbitOffset={4}>
+          <Planet
+            position={[0, -1, 10]}
+            size={2.0}
+            texturePath="/textures/2k_mars.jpg"
+            rotationSpeed={0.01}
+            onClick={() => handlePlanetClick("Contact", [0, 0, 50])}
+            name="Contact"
+          />
+        </OrbitingPlanet>
       </ErrorBoundary>
       {/* Content sections - shown when planet is selected */}
       {activePlanet && (
