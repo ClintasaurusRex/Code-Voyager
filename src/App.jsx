@@ -77,6 +77,7 @@ class ErrorBoundary extends React.Component {
 function Scene() {
   const [activePlanet, setActivePlanet] = useState(null);
   const [cameraPosition, setCameraPosition] = useState([20, 0, 50]);
+  const nameTextRef = useRef();
 
   const handlePlanetClick = (planetName, viewPosition) => {
     setActivePlanet(planetName);
@@ -86,16 +87,12 @@ function Scene() {
   return (
     <>
       <CameraControl makeDefault position={cameraPosition} fov={85} near={0.1} far={1000} />
-
       {/* Ambient lighting */}
       <ambientLight intensity={0.3} />
-
       {/* Main light source (sun) */}
       <pointLight position={[0, 0, 0]} intensity={100.5} color="#f8e3c9" />
-
       {/* Dynamic star background */}
       <StarField />
-
       {/* Central name/logo */}
       <group position={[0, 0, 0]}>
         <mesh>
@@ -104,7 +101,8 @@ function Scene() {
         </mesh>
 
         <Text3D
-          position={[0, 10, 0]}
+          ref={nameTextRef}
+          position={[-10, 10, 0]}
           font={"/fonts/helvetiker_regular.typeface.json"}
           size={1.95}
           height={0.2}
@@ -136,7 +134,6 @@ function Scene() {
           name="About Me"
         />
       </ErrorBoundary>
-
       <ErrorBoundary fallback={<SimplePlanet position={[-10, 2, 5]} size={1.8} name="Projects" />}>
         <Planet
           position={[-23, 2, 5]}
@@ -148,7 +145,6 @@ function Scene() {
           name="Projects"
         />
       </ErrorBoundary>
-
       <ErrorBoundary fallback={<SimplePlanet position={[5, -8, -4]} size={1.0} name="Contact" />}>
         <Planet
           position={[-15, -13, -4]}
@@ -160,7 +156,6 @@ function Scene() {
           name="Contact"
         />
       </ErrorBoundary>
-
       {/* Content sections - shown when planet is selected */}
       {activePlanet && (
         <Html
@@ -200,7 +195,6 @@ function Scene() {
           </div>
         </Html>
       )}
-
       {/* Allow limited orbit controls */}
       <OrbitControls
         enableZoom={true}
