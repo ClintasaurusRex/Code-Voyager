@@ -13,6 +13,7 @@ import paragraphs from "../data/about";
 import StarField from "./components/StarField";
 import Planet from "./components/Planet";
 import CursorBubble from "./components/CursorBubble";
+import ProjectGrid from "./components/ProjectGrid";
 
 // Loader for texture suspense
 function Loader() {
@@ -206,7 +207,7 @@ function Scene() {
               )}
               {activePlanet === "Projects" && (
                 <div className="content-panel-body">
-                  <p>Check out my portfolio of web development projects...</p>
+                  <ProjectGrid />
                 </div>
               )}
               {activePlanet === "Contact" && (
