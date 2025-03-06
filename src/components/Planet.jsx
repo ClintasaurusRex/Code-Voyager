@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { useTexture, Html } from "@react-three/drei";
 import * as THREE from "three";
+import "../App.css";
 
 function Planet({
   position,
@@ -26,7 +27,12 @@ function Planet({
   });
   return (
     <group position={position}>
-      <mesh ref={meshRef} onClick={onClick}>
+      <mesh
+        onPointerOver={() => (document.body.style.cursor = "pointer")}
+        onPointerOut={() => (document.body.style.cursor = "auto")}
+        ref={meshRef}
+        onClick={onClick}
+      >
         <sphereGeometry args={[size, 32, 32]} />
         <meshStandardMaterial map={texture} metalness={0.2} roughness={0.8} />
       </mesh>

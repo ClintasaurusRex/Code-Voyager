@@ -195,3 +195,7 @@ body {
   background: rgba(245, 197, 66, 0.6);
   border-radius: 3px;
 }
+
+.planet-hover {
+  cursor: pointer !important;
+}
