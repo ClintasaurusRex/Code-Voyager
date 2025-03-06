@@ -6,7 +6,7 @@ import * as THREE from "three";
 import CameraControl from "../components/camera/CameraControl";
 import StarField from "../components/StarField";
 import Planet from "../components/Planet";
-const ProjectGrid = React.lazy(() => import("../components/ProjectGrid"));
+import ProjectGrid from "../components/ProjectGrid";
 import Contact from "../components/Contact";
 import OrbitingPlanet from "../components/planets/OrbitingPlanet";
 import SimplePlanet from "../components/planets/SimplePlanet";
