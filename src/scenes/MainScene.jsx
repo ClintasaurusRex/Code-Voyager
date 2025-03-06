@@ -12,6 +12,7 @@ import OrbitingPlanet from "../components/planets/OrbitingPlanet";
 import SimplePlanet from "../components/planets/SimplePlanet";
 import ErrorBoundary from "../components/errors/ErrorBoundary";
 
+// Lazy Loader
 const Contact = lazy(() => import("../components/Contact"));
 const ProjectGrid = lazy(() => import("../components/ProjectGrid"));
 
