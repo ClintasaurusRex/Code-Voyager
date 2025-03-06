@@ -99,11 +99,22 @@ function Scene() {
   const [activePlanet, setActivePlanet] = useState(null);
   const [cameraPosition, setCameraPosition] = useState([20, 0, 50]);
   const nameTextRef = useRef();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handlePlanetClick = (planetName, viewPosition) => {
     setActivePlanet(planetName);
     setCameraPosition(viewPosition);
   };
+
+  React.useEffect(() => {
+    window.onModalStateChange = (isOpen) => {
+      setIsModalOpen(isOpen);
+    };
+
+    return () => {
+      window.onModalStateChange = null;
+    };
+  }, []);
 
   return (
     <>
@@ -219,9 +230,11 @@ function Scene() {
             </div>
 
             {/* Button outside the card but inside the container */}
-            <button className="floating-button" onClick={() => setActivePlanet(null)}>
-              Back to Space
-            </button>
+            {activePlanet && !isModalOpen && (
+              <button className="floating-button" onClick={() => setActivePlanet(null)}>
+                Back to Space
+              </button>
+            )}
           </div>
         </Html>
       )}
@@ -237,7 +250,6 @@ function Scene() {
     </>
   );
 }
-
 // Fallback for planets when textures fail to load
 function SimplePlanet({ position, size, name }) {
   const meshRef = useRef();
