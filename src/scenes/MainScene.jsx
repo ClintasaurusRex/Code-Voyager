@@ -1,20 +1,21 @@
-import React, { useState, useRef, useEffect } from "react";
-// import { useFrame } from "@react-three/fiber";
+import React, { useState, useRef, useEffect, Suspense, lazy } from "react";
+import { useFrame } from "@react-three/fiber";
 import { Text3D, OrbitControls, Html } from "@react-three/drei";
 import * as THREE from "three";
 
 import CameraControl from "../components/camera/CameraControl";
 import StarField from "../components/StarField";
 import Planet from "../components/Planet";
-import ProjectGrid from "../components/ProjectGrid";
-import Contact from "../components/Contact";
+// Replace these direct imports with lazy loads
+const ProjectGrid = lazy(() => import("../components/ProjectGrid"));
+const Contact = lazy(() => import("../components/Contact"));
+
 import OrbitingPlanet from "../components/planets/OrbitingPlanet";
 import SimplePlanet from "../components/planets/SimplePlanet";
 import ErrorBoundary from "../components/errors/ErrorBoundary";
 
 // Import data
 import paragraphs from "../../data/about";
-
 function MainScene() {
   const [activePlanet, setActivePlanet] = useState(null);
   const [cameraPosition, setCameraPosition] = useState([20, 0, 50]);
@@ -138,14 +139,18 @@ function MainScene() {
                 </div>
               )}
               {activePlanet === "Projects" && (
-                <div className="content-panel-body projects-panel">
-                  <ProjectGrid />
+                <div className="content-panel-body">
+                  <Suspense fallback={<div className="loading">Loading projects...</div>}>
+                    <ProjectGrid />
+                  </Suspense>
                 </div>
               )}
               {activePlanet === "Contact" && (
                 <div className="content-panel-body">
-                  <Contact />
-                  <p>Get in touch via email or social media...</p>
+                  <Suspense fallback={<div className="loading">Loading contact...</div>}>
+                    <Contact />
+                    <p>Get in touch via email or social media...</p>
+                  </Suspense>
                 </div>
               )}
             </div>
