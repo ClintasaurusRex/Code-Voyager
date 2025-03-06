@@ -148,9 +148,12 @@ function Scene() {
             position={[0, -5, 0]}
             size={2.2}
             texturePath="/textures/earth_atmos_2048.jpg"
-            rotationSpeed={0.005}
+            rotationSpeed={0.01}
             onClick={() => handlePlanetClick("About", [0, 0, 50])}
             name="About Me"
+            nameOffset={2.5}
+            emissiveIntensity={10.5}
+            brightness={10.5}
           />
         </OrbitingPlanet>
       </ErrorBoundary>
@@ -178,6 +181,7 @@ function Scene() {
             rotationSpeed={0.01}
             onClick={() => handlePlanetClick("Contact", [0, 0, 50])}
             name="Contact"
+            nameOffset={2.5}
           />
         </OrbitingPlanet>
       </ErrorBoundary>
