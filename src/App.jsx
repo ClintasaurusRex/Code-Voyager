@@ -12,6 +12,7 @@ import paragraphs from "../data/about";
 // Import components
 import StarField from "./components/StarField";
 import Planet from "./components/Planet";
+import CursorBubble from "./components/CursorBubble";
 
 // Loader for texture suspense
 function Loader() {
@@ -58,7 +59,8 @@ class ErrorBoundary extends React.Component {
     this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError(error) {
+  // eslint-disable-next-line no-unused-vars
+  static getDerivedStateFromError(eFrror) {
     return { hasError: true };
   }
 
@@ -117,7 +119,6 @@ function Scene() {
           <sphereGeometry args={[5, 32, 32]} />
           <meshStandardMaterial emissive="#f5c542" emissiveIntensity={1} color="#f8e3c9" />
         </mesh>
-
         <Text3D
           ref={nameTextRef}
           position={[-10, 10, 0]}
@@ -139,6 +140,7 @@ function Scene() {
           />
         </Text3D>
       </group>
+
       {/* Planets for different sections - with non-intersecting orbits */}
       <ErrorBoundary fallback={<SimplePlanet position={[8, 0, 0]} size={1.2} name="About Me" />}>
         <OrbitingPlanet orbitRadius={15} orbitSpeed={0.05} orbitOffset={0} yOffset={5}>
@@ -271,6 +273,7 @@ function App() {
         left: 0,
       }}
     >
+      <CursorBubble />
       <Canvas style={{ position: "absolute" }}>
         <Suspense fallback={<Loader />}>
           <ErrorBoundary fallback={<ErrorFallback />}>
