@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { projects } from "../Projects/projects";
 import ProjectCard from "./ProjectCard";
 import ProjectModal from "../Modal/ProjectModal";
-import "./ProjectGrid.css";
+import "../styles/ProjectGrid.css";
 
 const ProjectGrid = () => {
   const [selectedProject, setSelectedProject] = useState(null);

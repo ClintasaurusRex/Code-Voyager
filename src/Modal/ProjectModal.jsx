@@ -7,7 +7,7 @@ const ProjectModal = ({ project, onClose }) => {
     <div className="modal-backdrop" data-testid="modal-backdrop">
       <div className="modal-content" data-testid="modal-content">
         <button className="close-button" onClick={onClose}>
-          <img src="public/icons8-close.gif" alt="" />
+          <img src="/icons8-close.gif" alt="" />
         </button>
         <h2>{project.title}</h2>
         <p>{project.description}</p>
