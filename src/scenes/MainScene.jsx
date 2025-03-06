@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect, Suspense, lazy } from "react";
-import { useFrame } from "@react-three/fiber";
+// Add this import
+import Loader from "../components/loaders/Loader";
+
 import { Text3D, OrbitControls, Html } from "@react-three/drei";
 import * as THREE from "three";
 
@@ -9,7 +11,6 @@ import Planet from "../components/Planet";
 // Replace these direct imports with lazy loads
 const ProjectGrid = lazy(() => import("../components/ProjectGrid"));
 const Contact = lazy(() => import("../components/Contact"));
-
 import OrbitingPlanet from "../components/planets/OrbitingPlanet";
 import SimplePlanet from "../components/planets/SimplePlanet";
 import ErrorBoundary from "../components/errors/ErrorBoundary";
@@ -140,7 +141,7 @@ function MainScene() {
               )}
               {activePlanet === "Projects" && (
                 <div className="content-panel-body">
-                  <Suspense fallback={<div className="loading">Loading projects...</div>}>
+                  <Suspense fallback={<div className="loading">Loading... </div>}>
                     <ProjectGrid />
                   </Suspense>
                 </div>
