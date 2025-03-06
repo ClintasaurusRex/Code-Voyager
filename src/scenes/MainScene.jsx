@@ -19,7 +19,7 @@ const ProjectGrid = lazy(() => import("../components/ProjectGrid"));
 import paragraphs from "../../data/about";
 function MainScene() {
   const [activePlanet, setActivePlanet] = useState(null);
-  const [cameraPosition, setCameraPosition] = useState([20, 0, 50]);
+  const [cameraPosition, setCameraPosition] = useState([20, 20, 100]);
   const nameTextRef = useRef();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
