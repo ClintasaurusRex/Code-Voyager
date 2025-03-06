@@ -118,13 +118,17 @@ function Scene() {
 
   return (
     <>
-      <CameraControl makeDefault position={cameraPosition} fov={85} near={0.1} far={1000} />
+      <CameraControl makeDefault position={cameraPosition} fov={95} near={0.1} far={1000} />
+
       {/* Ambient lighting */}
       <ambientLight intensity={0.9} />
       {/* Main light source (sun) */}
-      <pointLight position={[0, 0, 0]} intensity={400.5} color="#f8e3c9" />
+
+      <pointLight position={[0, 0, 0]} intensity={200.5} color="#f8e3c9" />
+
       {/* Dynamic star background */}
       <StarField />
+
       {/* Central name/logo */}
       <group position={[0, 0, 0]}>
         <mesh>
