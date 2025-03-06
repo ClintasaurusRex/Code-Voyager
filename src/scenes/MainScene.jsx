@@ -133,12 +133,12 @@ function MainScene() {
             <div className="content-panel">
               <h2>{activePlanet}</h2>
               {activePlanet === "About" && (
-                <div className="content-panel-body">
+                <div className="content-panel-body about-panel">
                   <p>{paragraphs}</p>
                 </div>
               )}
               {activePlanet === "Projects" && (
-                <div className="content-panel-body">
+                <div className="content-panel-body projects-panel">
                   <ProjectGrid />
                 </div>
               )}
